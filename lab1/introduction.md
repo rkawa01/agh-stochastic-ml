@@ -14,7 +14,7 @@ $$
 
 - $\mathbf{w}$ is a vector of **weights**, one for each feature, controlling how much each feature affects the prediction.
 - $b$ is the **bias**, a constant that shifts the line up or down.
-- $\hat{y}^{(i)}$ is the predicted value for the $ i $-th sample.
+- $\hat{y}^{(i)}$ is the predicted value for the $i$-th sample.
 
 ### Simplifying with Bias Included
 
@@ -74,7 +74,7 @@ Where:
 
 The learning rate $\alpha$ is important - too large and we might overshoot, too small and progress will be slow.
 
-Here's how it works:
+Finally:
 
 1. **Calculate the Gradient**: The gradient tells us the direction of the steepest increase in the loss. We want to go the opposite way to decrease it. For MSE with the bias included, the gradient is:
 
@@ -82,7 +82,7 @@ $$
 \nabla_{\widetilde{\mathbf{w}}} \mathcal{L} = \frac{2}{N} \widetilde{\mathbf{X}}^\top (\mathbf{\hat{y}} - \mathbf{y})
 $$
 
-- $\widetilde{\mathbf{X}}$ is the matrix of all $ \widetilde{\mathbf{x}}^{(i)} $ samples stacked together.
+- $\widetilde{\mathbf{X}}$ is the matrix of all $\widetilde{\mathbf{x}}^{(i)}$ samples stacked together.
 - $\mathbf{y}$ is the vector of all true targets.
 - $\hat{\mathbf{y}}$ is the vector of all predictions.
 
@@ -91,8 +91,6 @@ $$
 $$
 \widetilde{\mathbf{w}} \leftarrow \widetilde{\mathbf{w}} - \alpha \nabla_{\widetilde{\mathbf{w}}} \mathcal{L}
 $$
-
-- $\alpha$ is the **learning rate**, a small number (like 0.01) that controls how big each step is. In practice, choosing the learning rate $\alpha$ is crucial: if it's too large, the loss might overshoot and diverge; if it's too small, training could take ages.
 
 3. **Repeat**: Keep updating until the loss stops getting smaller (or we've done enough steps).
 
