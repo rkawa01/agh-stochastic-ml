@@ -6,7 +6,7 @@ For this lab, we’ll use **linear regression**—the simplest model for predict
 
 ## The Linear Regression Model
 
-Imagine you have some data: each sample has a set of **features** (like house size or number of bedrooms) represented as a vector $\mathbf{x}^{(i)}$ with $d$ values, and a **target** value $ y^{(i)} $ (like the house price). Linear regression predicts the target with a straight-line equation:
+Imagine you have some data: each sample has a set of **features** (like house size or number of bedrooms) represented as a vector $\mathbf{x}^{(i)}$ with $d$ values, and a **target** value $y^{(i)}$ (like the house price). Linear regression predicts the target with a straight-line equation:
 
 $$
 \hat{y}^{(i)} = \sum_{j=1}^{d} w_j x_j^{(i)} + b = \mathbf{w}^\top \mathbf{x}^{(i)} + b
