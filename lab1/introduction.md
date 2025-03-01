@@ -47,7 +47,7 @@ $$
 - $N$ is the number of samples.
 - The smaller the MSE, the better our model fits the data.
 
-Our goal is to adjust $ \widetilde{\mathbf{w}} $ to make this loss as small as possible.
+Our goal is to adjust $\widetilde{\mathbf{w}}$ to make this loss as small as possible.
 
 ## Gradient Descent: The Optimization Tool
 
