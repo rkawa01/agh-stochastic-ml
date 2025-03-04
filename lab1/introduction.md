@@ -78,6 +78,39 @@ Finally:
 
 1. **Calculate the Gradient**: The gradient tells us the direction of the steepest increase in the loss. We want to go the opposite way to decrease it. For MSE with the bias included, the gradient is:
 
+Let's derive this gradient formula step by step:
+
+First, recall that our loss function is:
+$$
+\mathcal{L} = \frac{1}{N} \sum_{i=1}^{N} (\hat{y}^{(i)} - y^{(i)})^2
+$$
+
+And our predictions are:
+$$
+\hat{y}^{(i)} = \widetilde{\mathbf{w}}^\top \widetilde{\mathbf{x}}^{(i)}
+$$
+
+Substituting the prediction into the loss:
+$$
+\mathcal{L} = \frac{1}{N} \sum_{i=1}^{N} (\widetilde{\mathbf{w}}^\top \widetilde{\mathbf{x}}^{(i)} - y^{(i)})^2
+$$
+
+In matrix form, this is:
+$$
+\mathcal{L} = \frac{1}{N} (\widetilde{\mathbf{X}}\widetilde{\mathbf{w}} - \mathbf{y})^\top(\widetilde{\mathbf{X}}\widetilde{\mathbf{w}} - \mathbf{y})
+$$
+
+To find the gradient, we expand this:
+$$
+\mathcal{L} = \frac{1}{N} (\widetilde{\mathbf{w}}^\top\widetilde{\mathbf{X}}^\top\widetilde{\mathbf{X}}\widetilde{\mathbf{w}} - 2\mathbf{y}^\top\widetilde{\mathbf{X}}\widetilde{\mathbf{w}} + \mathbf{y}^\top\mathbf{y})
+$$
+
+Taking the gradient with respect to $\widetilde{\mathbf{w}}$:
+$$
+\nabla_{\widetilde{\mathbf{w}}} \mathcal{L} = \frac{1}{N} (2\widetilde{\mathbf{X}}^\top\widetilde{\mathbf{X}}\widetilde{\mathbf{w}} - 2\widetilde{\mathbf{X}}^\top\mathbf{y})
+$$
+
+Since $\widetilde{\mathbf{X}}\widetilde{\mathbf{w}} = \hat{\mathbf{y}}$, we get:
 $$
 \nabla_{\widetilde{\mathbf{w}}} \mathcal{L} = \frac{2}{N} \widetilde{\mathbf{X}}^\top (\mathbf{\hat{y}} - \mathbf{y})
 $$
