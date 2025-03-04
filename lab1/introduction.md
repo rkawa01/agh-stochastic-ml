@@ -93,9 +93,7 @@ In matrix form, this is:
 $$\mathcal{L} = \frac{1}{N} (\widetilde{\mathbf{X}}\widetilde{\mathbf{w}} - \mathbf{y})^\top(\widetilde{\mathbf{X}}\widetilde{\mathbf{w}} - \mathbf{y})$$
 
 To find the gradient, we expand this:
-$$
-\mathcal{L} = \frac{1}{N} (\widetilde{\mathbf{w}}^\top\widetilde{\mathbf{X}}^\top\widetilde{\mathbf{X}}\widetilde{\mathbf{w}} - 2\mathbf{y}^\top\widetilde{\mathbf{X}}\widetilde{\mathbf{w}} + \mathbf{y}^\top\mathbf{y})
-$$
+$$\mathcal{L} = \frac{1}{N} (\widetilde{\mathbf{w}}^\top\widetilde{\mathbf{X}}^\top\widetilde{\mathbf{X}}\widetilde{\mathbf{w}} - 2\mathbf{y}^\top\widetilde{\mathbf{X}}\widetilde{\mathbf{w}} + \mathbf{y}^\top\mathbf{y})$$
 
 Taking the gradient with respect to $\widetilde{\mathbf{w}}$:
 $$\nabla_{\widetilde{\mathbf{w}}} \mathcal{L} = \frac{1}{N} (2\widetilde{\mathbf{X}}^\top\widetilde{\mathbf{X}}\widetilde{\mathbf{w}} - 2\widetilde{\mathbf{X}}^\top\mathbf{y})$$
