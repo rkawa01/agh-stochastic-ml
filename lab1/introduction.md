@@ -81,24 +81,16 @@ Finally:
 Let's derive this gradient formula step by step:
 
 First, recall that our loss function is:
-$$
-\mathcal{L} = \frac{1}{N} \sum_{i=1}^{N} (\hat{y}^{(i)} - y^{(i)})^2
-$$
+$$\mathcal{L} = \frac{1}{N} \sum_{i=1}^{N} (\hat{y}^{(i)} - y^{(i)})^2$$
 
 And our predictions are:
-$$
-\hat{y}^{(i)} = \widetilde{\mathbf{w}}^\top \widetilde{\mathbf{x}}^{(i)}
-$$
+$$\hat{y}^{(i)} = \widetilde{\mathbf{w}}^\top \widetilde{\mathbf{x}}^{(i)}$$
 
 Substituting the prediction into the loss:
-$$
-\mathcal{L} = \frac{1}{N} \sum_{i=1}^{N} (\widetilde{\mathbf{w}}^\top \widetilde{\mathbf{x}}^{(i)} - y^{(i)})^2
-$$
+$$\mathcal{L} = \frac{1}{N} \sum_{i=1}^{N} (\widetilde{\mathbf{w}}^\top \widetilde{\mathbf{x}}^{(i)} - y^{(i)})^2$$
 
 In matrix form, this is:
-$$
-\mathcal{L} = \frac{1}{N} (\widetilde{\mathbf{X}}\widetilde{\mathbf{w}} - \mathbf{y})^\top(\widetilde{\mathbf{X}}\widetilde{\mathbf{w}} - \mathbf{y})
-$$
+$$\mathcal{L} = \frac{1}{N} (\widetilde{\mathbf{X}}\widetilde{\mathbf{w}} - \mathbf{y})^\top(\widetilde{\mathbf{X}}\widetilde{\mathbf{w}} - \mathbf{y})$$
 
 To find the gradient, we expand this:
 $$
@@ -106,14 +98,10 @@ $$
 $$
 
 Taking the gradient with respect to $\widetilde{\mathbf{w}}$:
-$$
-\nabla_{\widetilde{\mathbf{w}}} \mathcal{L} = \frac{1}{N} (2\widetilde{\mathbf{X}}^\top\widetilde{\mathbf{X}}\widetilde{\mathbf{w}} - 2\widetilde{\mathbf{X}}^\top\mathbf{y})
-$$
+$$\nabla_{\widetilde{\mathbf{w}}} \mathcal{L} = \frac{1}{N} (2\widetilde{\mathbf{X}}^\top\widetilde{\mathbf{X}}\widetilde{\mathbf{w}} - 2\widetilde{\mathbf{X}}^\top\mathbf{y})$$
 
 Since $\widetilde{\mathbf{X}}\widetilde{\mathbf{w}} = \hat{\mathbf{y}}$, we get:
-$$
-\nabla_{\widetilde{\mathbf{w}}} \mathcal{L} = \frac{2}{N} \widetilde{\mathbf{X}}^\top (\mathbf{\hat{y}} - \mathbf{y})
-$$
+$$\nabla_{\widetilde{\mathbf{w}}} \mathcal{L} = \frac{2}{N} \widetilde{\mathbf{X}}^\top (\mathbf{\hat{y}} - \mathbf{y})$$
 
 - $\widetilde{\mathbf{X}}$ is the matrix of all $\widetilde{\mathbf{x}}^{(i)}$ samples stacked together.
 - $\mathbf{y}$ is the vector of all true targets.
