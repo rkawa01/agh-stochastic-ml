@@ -8,7 +8,7 @@ Below is an introductory overview of Gradient Descent and three key extensions: 
 **Goal:** Find $\mathbf{w}$ that minimizes $f(\mathbf{w})$.
 
 **Update Rule:**
-$$\mathbf{w}_{t+1} = \mathbf{w}_t - \alpha \,\nabla f(\mathbf{w}_t),$$
+$$\mathbf{w}_{t+1} = \mathbf{w}_t - \alpha \,\nabla f(\mathbf{w}_t)$$
 where
 - $\nabla f(\mathbf{w}_t)$ is the gradient of $f$ evaluated at $\mathbf{w}_t$.
 - $\alpha > 0$ is the learning rate.
@@ -23,9 +23,9 @@ We introduce a velocity term $\mathbf{v}_t$ that accumulates gradients via an ex
 
 **Update Equations:**  
 1. **Velocity Update:**
-   $$\mathbf{v}_{t} = \beta \,\mathbf{v}_{t-1} + \alpha \,\nabla f(\mathbf{w}_t),$$
+   $$\mathbf{v}_{t} = \beta \,\mathbf{v}_{t-1} + \alpha \,\nabla f(\mathbf{w}_t)$$
 2. **Parameter Update:**
-   $$\mathbf{w}_{t+1} = \mathbf{w}_t - \mathbf{v}_{t},$$
+   $$\mathbf{w}_{t+1} = \mathbf{w}_t - \mathbf{v}_{t}$$
 where $\beta \in [0,1)$ is the momentum coefficient (sometimes denoted $\gamma$ in some references). A larger $\beta$ applies more smoothing from previous steps.
 
 
@@ -36,10 +36,10 @@ where $\beta \in [0,1)$ is the momentum coefficient (sometimes denoted $\gamma$ 
 **Key Idea:** Accumulate the sum of squared gradients in a vector $\mathbf{G}_t$.  
 
 1. **Accumulator Update:**
-   $$\mathbf{G}_t = \mathbf{G}_{t-1} + \bigl(\nabla f(\mathbf{w}_t)\bigr)^2,$$
+   $$\mathbf{G}_t = \mathbf{G}_{t-1} + \bigl(\nabla f(\mathbf{w}_t)\bigr)^2$$
    (the square here is applied element-wise).
 2. **Parameter Update:**
-   $$\mathbf{w}_{t+1} = \mathbf{w}_t - \frac{\alpha}{\sqrt{\mathbf{G}_t} + \varepsilon}\,\nabla f(\mathbf{w}_t),$$
+   $$\mathbf{w}_{t+1} = \mathbf{w}_t - \frac{\alpha}{\sqrt{\mathbf{G}_t} + \varepsilon}\,\nabla f(\mathbf{w}_t)$$
    where $\varepsilon$ is a small constant (e.g. $10^{-8}$) to avoid division by zero.
 
 This per-parameter scaling is especially effective when some features are sparse or have different magnitudes.
@@ -53,14 +53,14 @@ This per-parameter scaling is especially effective when some features are sparse
 
 **Update Equations:**  
 1. **First Moment (mean of gradients):**  
-   $$\mathbf{m}_t = \beta_1 \mathbf{m}_{t-1} + (1 - \beta_1)\,\nabla f(\mathbf{w}_t),$$
+   $$\mathbf{m}_t = \beta_1 \mathbf{m}_{t-1} + (1 - \beta_1)\,\nabla f(\mathbf{w}_t)$$
 2. **Second Moment:**  
-   $$\mathbf{v}_t = \beta_2 \mathbf{v}_{t-1} + (1 - \beta_2)\,\bigl(\nabla f(\mathbf{w}_t)\bigr)^2,$$
+   $$\mathbf{v}_t = \beta_2 \mathbf{v}_{t-1} + (1 - \beta_2)\,\bigl(\nabla f(\mathbf{w}_t)\bigr)^2$$
 3. **Bias Correction:**  
-   $$\hat{\mathbf{m}}_t = \frac{\mathbf{m}_t}{1 - \beta_1^t},$$
-   $$\hat{\mathbf{v}}_t = \frac{\mathbf{v}_t}{1 - \beta_2^t},$$
+   $$\hat{\mathbf{m}}_t = \frac{\mathbf{m}_t}{1 - \beta_1^t}$$
+   $$\hat{\mathbf{v}}_t = \frac{\mathbf{v}_t}{1 - \beta_2^t}$$
 4. **Parameter Update:**  
-   $$\mathbf{w}_{t+1} = \mathbf{w}_t - \frac{\alpha\, \hat{\mathbf{m}}_t}{\sqrt{\hat{\mathbf{v}}_t} + \varepsilon},$$
+   $$\mathbf{w}_{t+1} = \mathbf{w}_t - \frac{\alpha\, \hat{\mathbf{m}}_t}{\sqrt{\hat{\mathbf{v}}_t} + \varepsilon}$$
 
 where $\beta_1, \beta_2 \in [0,1)$ are decay rates (typically $\beta_1 = 0.9$ and $\beta_2 = 0.999$) controlling how quickly old information is discarded, and $\varepsilon$ (typically $10^{-8}$) ensures numerical stability.
 
