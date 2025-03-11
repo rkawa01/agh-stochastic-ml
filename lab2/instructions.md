@@ -188,6 +188,7 @@ Observe how Momentum performs on different functions. Use following parameters:
 
 For each function, plot:
 - Function value vs. epoch.
+- For Rosenbrock and Rastrigin functions, experiment with decreasing the learning rate `alpha` (try values like 0.001 and 0.0001) to observe how it affects convergence.
 - Velocity norm (e.g `np.linalg.norm`) vs. epoch.
 
 How does the velocity norm evolve? Does it correlate with convergence speed?
