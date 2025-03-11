@@ -130,21 +130,25 @@ def plot_contour_and_paths(
         )
     )
 
+    colors = ['red', 'blue', 'green', 'purple', 'orange', 'cyan', 'magenta', 'yellow', 'pink', 'brown']
+    
     for idx, path in enumerate(paths):
+        color_idx = idx % len(colors)
         fig.add_trace(
             go.Scatter(
                 x=path[:, 0],
                 y=path[:, 1],
                 mode="lines+markers",
                 marker=dict(size=4),
-                line=dict(width=2, color="black"),
+                line=dict(width=2, color=colors[color_idx]),
                 name=f"Run {idx+1}",
-                showlegend=False,
+                showlegend=True,
             )
         )
 
     fig.update_layout(
-        title=title, xaxis_title="x", yaxis_title="y", width=800, height=700
+        title=title, xaxis_title="x", yaxis_title="y", width=800, height=700,
+        legend=dict(orientation="h", yanchor="bottom", y=1.02, xanchor="right", x=1)
     )
 
     fig.show()
