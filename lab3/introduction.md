@@ -31,8 +31,10 @@ In mathematical terms, let:
 - $y$ be the correct label of $\mathbf{x}$.
 - $\mathbf{\theta}$ be the parameters of the model $f_\theta(\cdot)$.
 
-An adversarial example $\mathbf{x}_\text{adv}$ is created by applying a small perturbation $\boldsymbol{\eta}$ to $\mathbf{x}$:
-$$\mathbf{x}_\text{adv} = \mathbf{x} + \boldsymbol{\eta}$$
+An adversarial example $\mathbf{x}_{adv}$ is created by applying a small perturbation $\eta$ to $\mathbf{x}$:
+```math
+\mathbf{x}_{adv} = \mathbf{x} + \eta
+```
 such that the model predicts the wrong label:
 $$\arg\max_i f_\theta(\mathbf{x}_\text{adv})_i \neq y$$
 while keeping the perturbation $\boldsymbol{\eta}$ small enough.
@@ -45,7 +47,9 @@ A key insight of Goodfellow *et al.* is that **nonlinear** neural networks often
 
 One of the paper’s main practical contributions is a fast, simple method to generate adversarial examples. The method is based on the gradient of the loss function with respect to the input:
 
-$$\mathbf{x}_\text{adv} = \mathbf{x} + \epsilon \cdot \text{sign}\bigl(\nabla_{\mathbf{x}} J(\mathbf{\theta}, \mathbf{x}, y)\bigr)$$
+```math
+\mathbf{x}_\text{adv} = \mathbf{x} + \epsilon \cdot \text{sign}\bigl(\nabla_{\mathbf{x}} J(\mathbf{\theta}, \mathbf{x}, y)\bigr)
+```
 
 where:
 - $J(\mathbf{\theta}, \mathbf{x}, y)$ is the training loss (e.g., cross-entropy),
