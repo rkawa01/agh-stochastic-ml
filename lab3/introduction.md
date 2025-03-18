@@ -58,3 +58,13 @@ where:
 - $\epsilon$ is a small scalar controlling the amount of perturbation.
 
 This simple, single-step approach often suffices to produce high-confidence misclassifications on neural networks that have been trained in a “standard” (non-adversarial) manner.
+
+### Recommended Reading: Neural Network Fundamentals
+
+If you need to refresh your understanding of neural networks before diving into adversarial examples, here are some excellent resources:
+
+1. **[PyTorch Quickstart Tutorial](https://pytorch.org/tutorials/beginner/basics/quickstart_tutorial.html)** - A practical introduction to implementing neural networks with PyTorch
+   
+2. **[Micrograd](https://github.com/karpathy/micrograd)** by Andrej Karpathy - A minimal neural network library built from scratch. Accompanied by an [explanatory video](https://www.youtube.com/watch?v=VMj-3S1tku0) that walks through the implementation
+
+3. **3Blue1Brown's Neural Network Series** - An intuitive visual explanation of neural networks -[But what is a neural network?](https://www.youtube.com/watch?v=aircAruvnKk) (Part 1 of the series)
