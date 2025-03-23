@@ -13,6 +13,7 @@ This course explores various problems at the intersection of optimization and ma
 | 1 | Gradient Descent | Implements gradient descent algorithm to train a linear regression model from scratch. |
 | 2 | Gradient Descent Extensions | Covers gradient descent extensions including Momentum, AdaGrad, and Adam. Students test these optimizers on standard benchmark test functions: Sphere, Rosenbrock, Rastrigin. |
 | 3 | Adversarial Examples | Investigates the vulnerability of neural networks to adversarial attacks, implementing the Fast Gradient Sign Method (FGSM) to generate perturbations that cause misclassification. |
+| 4 | Model-Based Offline Optimization | Explores optimization of black-box functions using pre-collected datasets without additional function evaluations. Involves training neural network surrogate models to approximate benchmark functions and implementing gradient-based optimization techniques on these surrogate models to find optimal solutions. |
 
 ## Issues and Contributions
 
