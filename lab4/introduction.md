@@ -2,7 +2,7 @@
 
 Model-Based Offline Optimization (MBO) is a powerful approach to find the "best" design, represented as a parameter vector $w$ that maximizes (or minimizes) a costly scalar objective function $f(w)$, using solely a fixed, pre-collected dataset. The function $f(w)$ is considered a "black-box" because we only observe its inputs and outputs without access to its internal workings, analytical form, or derivatives. Unlike online methods that iteratively query $f$, offline MBO prohibits additional evaluations during optimization, relying entirely on existing data to propose improved designs. This makes it uniquely suited for real-world problems where further evaluations are expensive, risky, or impossible, such as drug discovery or materials science.
 ## 1. Definition
-Given a pre-collected dataset of parameter-score pairs $\mathcal{D} = \{ (w_i, f(w_i)) \}_{i=1}^N$, identify a new design (set of parameters) $w^*$ such that $f(w^*)$ is as large as possible (for maximization) or as small as possible (for minimization), without ever evaluating $f$ on new inputs during the optimization process. This constraint distinguishes offline optimization from traditional approaches that iteratively query the objective function.
+Given a pre-collected dataset of parameter-score pairs $\mathcal{D} = \{ (w_i, f(w_i)) \}_{i=1}^N$, identify a new design (set of parameters) $w^\ast$ such that $f(w^\ast)$ is as large as possible (for maximization) or as small as possible (for minimization), without ever evaluating $f$ on new inputs during the optimization process. This constraint distinguishes offline optimization from traditional approaches that iteratively query the objective function.
 
 Key Components:
 1. **Designs:** $\{ w_i \}_{i=1}^N$, where each $w_i$ is a parameter vector (e.g., a molecule configuration, neural network architecture, or material property set).
@@ -13,7 +13,7 @@ Key Components:
 
 Core Idea: 
 1. Train a surrogate model (e.g. neural net) $\hat{f}(w)$ to approximate $f(w)$ based on $\mathcal{D}$
-2. Optimize $\hat{f}(w)$ to propose $w^*= \arg\min_w \hat{f}(w)$ using gradient-based methods. Since $\hat{f}(w)$ is a neural network, we can leverage automatic differentiation frameworks (e.g., PyTorch) to obtain gradients and apply optimization algorithms like Adam. The challenge lies in ensuring $w^*$ performs well under the true $f$, despite limited data and no further feedback.
+2. Optimize $\hat{f}(w)$ to propose $w^\ast= \arg\min_w \hat{f}(w)$ using gradient-based methods. Since $\hat{f}(w)$ is a neural network, we can leverage automatic differentiation frameworks (e.g., PyTorch) to obtain gradients and apply optimization algorithms like Adam. The challenge lies in ensuring $w^\ast$ performs well under the true $f$, despite limited data and no further feedback.
 
 ## 2. The Offline MBO Process
 
@@ -28,11 +28,11 @@ The workflow of offline MBO is straightforward:
    - Ensure $\hat{f}$ is accurate and computationally cheap to evaluate.
 
 3. **Optimize the Surrogate:**
-   - Apply an optimization algorithm to find $w^*=\arg\min_w\hat{f}(w)$. Since $\hat{f}(w)$ is a neural network, we can leverage automatic differentiation frameworks (e.g., PyTorch) to obtain gradients and apply optimization algorithms like Adam.
+   - Apply an optimization algorithm to find $w^\ast=\arg\min_w\hat{f}(w)$. Since $\hat{f}(w)$ is a neural network, we can leverage automatic differentiation frameworks (e.g., PyTorch) to obtain gradients and apply optimization algorithms like Adam.
    - Leverage $\hat{f}$'s low cost for extensive searches.
 
 4. **Propose the Design:**
-   - Output $w^*$ as the recommended design, with its true score $f(w^*)$ unknown unless post-hoc evaluation is feasible.
+   - Output $w^\ast$ as the recommended design, with its true score $f(w^\ast)$ unknown unless post-hoc evaluation is feasible.
 
 **Key Constraint:** No additional evaluations of $f$ are allowed during training or optimization, distinguishing offline MBO from iterative methods like Bayesian optimization.
 
@@ -45,7 +45,7 @@ The workflow of offline MBO is straightforward:
 
 ## 4. Challenges:
 - **Limited View of Design Space:** A small or unrepresentative $\mathcal{D}$ restricts $\hat{f}$'s ability to model $f$ accurately across all $w$.
-- **Out-of-Distribution (OOD) Issues:** $\hat{f}$ may overestimate scores for designs unlike those in $\mathcal{D}$, leading the optimizer to propose suboptimal or invalid $w^*$.
+- **Out-of-Distribution (OOD) Issues:** $\hat{f}$ may overestimate scores for designs unlike those in $\mathcal{D}$, leading the optimizer to propose suboptimal or invalid $w^\ast$.
 - **Surrogate Accuracy:** Simple regression (e.g., minimizing mean squared error) can falter in OOD regions, risking poor generalization.
 
 ## 5. Recommended Reading:
