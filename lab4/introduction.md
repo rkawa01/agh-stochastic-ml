@@ -52,3 +52,4 @@ The workflow of offline MBO is straightforward:
 1. Tan, Rong-Xi, et al. [Offline Model-Based Optimization by Learning to Rank.](https://openreview.net/forum?id=sb1HgVDLjN)
 2. Trabucco, Brandon, et al. [Conservative objective models for effective offline model-based optimization.](https://arxiv.org/abs/2107.06882)
 3. Momeni, Ali, et al. [Locality-aware Surrogates for Gradient-based Black-box Optimization.](https://arxiv.org/html/2501.19161v1)
+4. Trabucco, Brandon, et al. [Design-bench: Benchmarks for data-driven offline model-based optimization.](https://arxiv.org/pdf/2202.08450)
