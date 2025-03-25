@@ -53,3 +53,4 @@ The workflow of offline MBO is straightforward:
 2. Trabucco, Brandon, et al. [Conservative objective models for effective offline model-based optimization.](https://arxiv.org/abs/2107.06882)
 3. Momeni, Ali, et al. [Locality-aware Surrogates for Gradient-based Black-box Optimization.](https://arxiv.org/html/2501.19161v1)
 4. Trabucco, Brandon, et al. [Design-bench: Benchmarks for data-driven offline model-based optimization.](https://arxiv.org/pdf/2202.08450)
+5. Karpathy, Andrej [A Recipe for Training Neural Networks](https://karpathy.github.io/2019/04/25/recipe/)
