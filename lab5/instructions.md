@@ -142,10 +142,10 @@ The objective function drives the optimization:
 - Takes a trial object from Optuna.
 - Suggests hyperparameter values.
 - Trains a CatBoost model.
-- Evaluates accuracy on the test set.
-- Returns the score for Optuna to maximize.
+- Evaluates accuracy on the validation set.
+- Returns the score (accuracy).
 
-Here’s the updated code:
+This [notebook](https://github.com/optuna/optuna-examples/blob/main/quickstart.ipynb) provides a useful example of implementing Optuna, although it employs cross-validation (CV) rather than a train/validation split. Additionally, the CatBoost documentation [page](https://catboost.ai/docs/en/concepts/parameter-tuning) offers comprehensive guidance on parameter tuning.
 ```python
 import optuna
 from catboost import CatBoostClassifier
@@ -154,7 +154,7 @@ from sklearn.metrics import accuracy_score
 def objective(trial):
     params = {
         'iterations': trial.suggest_int('iterations', 100, 1000),
-        # TODO: Investigate docs and add more hyperparameters
+        # TODO: Investigate CatBoost docs and add more hyperparameters
     }
 
     # TODO: 
@@ -220,14 +220,14 @@ y_pred_test = final_model.predict(X_test)
 # Calculate final accuracy
 final_accuracy = accuracy_score(y_test, y_pred_test)
 
-print("\n--- Performance Comparison ---")
+print("--- Performance Comparison ---")
 # Assuming baseline_accuracy variable holds the score from Step 5
 print(f"Baseline Accuracy (on Test Set): {baseline_accuracy * 100:.2f}%")
 print(f"Optimized Accuracy (on Test Set): {final_accuracy * 100:.2f}%")
 improvement = final_accuracy - baseline_accuracy
 print(f"Improvement due to HPO: {improvement * 100:.2f}%")
 
-print("\nConfusion Matrix for Final Optimized Model (on Test Set):")
+print("Confusion Matrix for Final Optimized Model (on Test Set):")
 ConfusionMatrixDisplay.from_estimator(final_model, X_test, y_test)
 plt.title('Confusion Matrix for Final Optimized Model')
 plt.tight_layout()
