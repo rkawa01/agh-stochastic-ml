@@ -44,3 +44,4 @@ For this lab, we will use **CatBoost**, but it's good to be aware of the other l
 1. McElfresh, Duncan, et al. [When do neural nets outperform boosted trees on tabular data?](https://arxiv.org/pdf/2305.02997)
 2. [M5 Forecasting - Accuracy](https://www.kaggle.com/competitions/m5-forecasting-accuracy/overview)
 3. scikit-learn [Tuning the hyper-parameters of an estimator](https://scikit-learn.org/stable/modules/grid_search.html)
+4. [When to Choose CatBoost Over XGBoost or LightGBM (Practical Guide)](https://neptune.ai/blog/when-to-choose-catboost-over-xgboost-or-lightgbm)
