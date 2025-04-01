@@ -92,14 +92,7 @@ sns.pairplot(sample, hue='Cover Type', diag_kind='kde')
 plt.show()
 ```
 
-## 4. Setting up Optuna Dashboard
-Optuna offers a dashboard to monitor optimization in real-time. Launch it with:
-
-```bash
-optuna-dashboard sqlite:///example.db
-```
-
-## 5. Train and evaluate CatBoost with default settings
+## 4. Train and evaluate CatBoost with default settings
 
 Before performing hyperparameter optimization, it’s important to establish a baseline model using CatBoost with default settings. This helps us gauge how much improvement is achieved through tuning.
 
@@ -137,7 +130,7 @@ plt.title('Confusion Matrix for Baseline Model')
 plt.show()
 ``` 
 
-## 6. Implementing Hyperparameter Tuning with Optuna
+## 5. Implementing Hyperparameter Tuning with Optuna
 The objective function drives the optimization:
 - Takes a trial object from Optuna.
 - Suggests hyperparameter values.
@@ -176,7 +169,15 @@ study = optuna.create_study(
 )
 study.optimize(objective, n_trials=20)  # Run 20 trials
 ```
+
+## 6. Setting up Optuna Dashboard
+Optuna offers a dashboard to monitor optimization in real-time. Launch it with:
+
+```bash
+optuna-dashboard sqlite:///example.db
+```
 Monitor trials at http://localhost:8080. Discuss results. Which features are most important?
+
 
 ## 7. Post-Optimization Steps: Analyzing Results and Final Evaluation
 
