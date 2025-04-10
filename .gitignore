@@ -171,3 +171,5 @@ cython_debug/
 .pypirc
 
 lab3/data
+lab5/catboost_info
+lab5/example.db
