@@ -31,8 +31,8 @@ import plotly.graph_objects as go
 # 1.0, yielding a 5-dimensional feature vector at each step.
 #
 # **Policy Parameters (`weights`)**:
-# We use an affine (linear + bias) policy: a weight vector w ∈ ℝ⁵.
-# For each state feature vector x ∈ ℝ⁵, compute activation u = wᵀx.
+# We use an affine (linear + bias) policy: a weight vector w \in \mathbb{R}^5.
+# For each state feature vector x \in \mathbb{R}^5, compute activation u = w^T x.
 # If u > 0, select action=1 (push right); otherwise, action=0 (push left).
 # By learning the weight for each observation component and the bias,
 # the policy effectively draws a separating hyperplane in feature space.
@@ -83,6 +83,8 @@ def evaluate_weights(
 ) -> float:
     """
     Compute the average return of a linear policy over several episodes.
+    Note: In some optimization problems, the objective function is noisy, so we
+    may want to average over multiple episodes to get a more stable estimate.
 
     Args:
         weights: Policy parameter vector.
@@ -135,12 +137,6 @@ def optimize_policy(
 
 
 def plot_results(rewards: list[float]) -> None:
-    """
-    Plot optimization progress using Matplotlib and Plotly.
-
-    Args:
-        rewards: Recorded best average rewards per generation.
-    """
     generations = list(range(1, len(rewards) + 1))
 
     plt.figure(figsize=(10, 6))
@@ -154,25 +150,26 @@ def plot_results(rewards: list[float]) -> None:
 
 
 def main() -> None:
-    """
-    Main entry: configure environment, optimize policy, and demonstrate results.
-    """
-    ENV = "CartPole-v1"
-    obs_dim = gym.make(ENV).observation_space.shape[0]
+    env_name = "CartPole-v1"
+    obs_dim = gym.make(env_name).observation_space.shape[0]
     dim = obs_dim + 1  # include bias
 
     rewards, best_weights = optimize_policy(
-        env_name=ENV, dim=dim, popsize=30, sigma=1.0, max_gens=10, episodes_per_eval=5
+        env_name=env_name,
+        dim=dim,
+        popsize=30,
+        sigma=1.0,
+        max_gens=10,
+        episodes_per_eval=5,
     )
 
     plot_results(rewards)
 
-    render_env = gym.make(ENV, render_mode="human")
+    render_env = gym.make(env_name, render_mode="human")
     final_reward = play_episode(render_env, best_weights, render=True)
     print(f"Final evaluation reward: {final_reward:.2f}")
     render_env.close()
 
 
 if __name__ == "__main__":
-    print("Starting CMA-ES optimization for CartPole-v1...")
     main()
