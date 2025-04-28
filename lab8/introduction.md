@@ -20,8 +20,8 @@ The "magic" of CMA-ES lies in how it adapts its search strategy. It uses a multi
 3. Covariance Matrix - $C$ - This controls the shape and orientation of the search ellipse. This is the most sophisticated part. CMA-ES learns correlations between variables. If the valley is a long, narrow ridge, the covariance matrix will adapt to make the search ellipse long and narrow and align it with the ridge, making the search much more efficient.
 
 ![CMA-ES Adaptation](https://lilianweng.github.io/posts/2019-09-05-evolution-strategies/CMA-ES-illustration.png)
+*Images: Visualization of how CMA-ES adapts its search distribution to the landscape of the objective function.*
 
-*Image: Visualization of how CMA-ES adapts its search distribution to the landscape of the objective function.*
 
 
 ![CMA-ES Pseudocode](https://lilianweng.github.io/posts/2019-09-05-evolution-strategies/CMA-ES-algorithm.png)
