@@ -43,3 +43,4 @@ The "magic" of CMA-ES lies in how it adapts its search strategy. It uses a multi
 1. Hansen, Nikolaus. [The CMA evolution strategy: A tutorial.](https://arxiv.org/abs/1604.00772)
 2. Lil'Log [Evolution Strategies](https://lilianweng.github.io/posts/2019-09-05-evolution-strategies/)
 3. Such, Felipe Petroski, et al. [Deep neuroevolution: Genetic algorithms are a competitive alternative for training deep neural networks for reinforcement learning.](https://arxiv.org/abs/1712.06567)
+4. OpenAI [Evolution strategies as a scalable alternative to reinforcement learning](https://openai.com/index/evolution-strategies/)
