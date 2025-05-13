@@ -17,6 +17,8 @@ This course explores various problems at the intersection of optimization and ma
 | 5 | Hyperparameter Optimization | Utilizes Optuna framework to fine-tune CatBoost model hyperparameters on the Covertype dataset. Demonstrates practical application of HPO to maximize classification performance in a multiclass problem. |
 | 6 | Bayesian Optimization | Covers various acquisition functions (e.g., Expected Improvement, UCB), focusing on how they manage the exploration-exploitation trade-off. |
 | 7 | Normal Distribution | Explores the fundamental properties and significance of the Normal Distribution. |
+| 8 | CMA-ES | Applies the pycma library to evolve policy parameters and solve the OpenAI Gym CartPole balancing task. |
+| 9 | Neuroevolution | Demonstrates evolutionary training of neural networks by applying CMA-ES to directly optimize network weights for solving a supervised learning problem. |
 
 ## Issues and Contributions
 
