@@ -19,6 +19,7 @@ This course explores various problems at the intersection of optimization and ma
 | 7 | Normal Distribution | Explores the fundamental properties and significance of the Normal Distribution. |
 | 8 | CMA-ES | Applies the pycma library to evolve policy parameters and solve the OpenAI Gym CartPole balancing task. |
 | 9 | Neuroevolution | Demonstrates evolutionary training of neural networks by applying CMA-ES to directly optimize network weights for solving a supervised learning problem. |
+| 10 | Differential Evolution | Implements Differential Evolution from scratch. |
 
 ## Issues and Contributions
 
