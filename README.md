@@ -20,6 +20,7 @@ This course explores various problems at the intersection of optimization and ma
 | 8 | CMA-ES | Applies the pycma library to evolve policy parameters and solve the OpenAI Gym CartPole balancing task. |
 | 9 | Neuroevolution | Demonstrates evolutionary training of neural networks by applying CMA-ES to directly optimize network weights for solving a supervised learning problem. |
 | 10 | Differential Evolution | Implements Differential Evolution from scratch. |
+| 11 | LLM × EA | Evolution of Heuristics |
 
 ## Issues and Contributions
 
