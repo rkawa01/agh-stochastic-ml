@@ -21,6 +21,7 @@ This course explores various problems at the intersection of optimization and ma
 | 9 | Neuroevolution | Demonstrates evolutionary training of neural networks by applying CMA-ES to directly optimize network weights for solving a supervised learning problem. |
 | 10 | Differential Evolution | Implements Differential Evolution from scratch. |
 | 11 | LLM × EA | Evolution of Heuristics |
+| 12 | A Critical Look at Cuckoo Search | Explores the common issue of seemingly new optimization algorithms that may not offer genuinely novel ideas, focusing on Cuckoo Search and its critical analysis. |
 
 ## Issues and Contributions
 
